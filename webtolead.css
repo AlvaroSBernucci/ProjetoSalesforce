@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.bg {
+  background-image: url(./final-zoom-background-at-2x.png); /* Substitua pelo caminho da sua imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo com opacidade para destacar os inputs */
+  padding: 20px;
+  border-radius: 10px; /* Borda arredondada */
+}
+
+.form {
+  max-width: 400px; /* Largura máxima do formulário */
+  margin: 0 auto; /* Centralizar o formulário na página */
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}

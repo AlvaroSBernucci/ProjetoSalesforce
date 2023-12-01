@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="./webtolead.css">
+</head>
+
+<body>
+  <main class="bg">
+    <div class="container">
+      <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DHp000002LSH3" method="POST" class="form">
+
+        <input type="hidden" name="oid" value="00DHp000002LSH3">
+        <input type="hidden" name="retURL" value="http://">
+
+        <input type="hidden" name="debug" value="1">
+        <input type="hidden" name="debugEmail" value="alvarosenabernucci@gmail.com">
+
+        <label for="last_name">Nome</label>
+        <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required>
+        <br>
+
+        <label for="email">Email</label>
+        <input id="email" maxlength="80" name="email" size="20" type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+        <span id="email-error" style="color: red;"></span>
+        <br>
+
+        <label for="mobile">Mobile</label>
+        <input id="mobile" maxlength="17" name="mobile" size="20" type="text" pattern="\d{11}">
+        <span id="mobile-error" style="color: red;"></span>
+        <br>
+
+        <input type="submit" name="submit" onclick="validateForm()">
+
+      </form>
+    </div>
+
+    <script>
+      function validateForm() {
+        var emailValue = document.getElementById("email").value;
+        var mobileValue = document.getElementById("mobile").value;
+
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        var mobileRegex = /^\d{11}$/;
+
+        if (emailValue === "" && mobileValue === "") {
+          alert("Preencha pelo menos o campo de e-mail ou telefone.");
+          event.preventDefault(); // Impede o envio do formulário
+        }
+
+        if (emailValue !== "" && !emailRegex.test(emailValue)) {
+          document.getElementById("email-error").innerText = "Formato inválido. Insira um e-mail válido.";
+          event.preventDefault(); // Impede o envio do formulário
+        }
+
+        if (mobileValue !== "" && !mobileRegex.test(mobileValue)) {
+          document.getElementById("mobile-error").innerText = "Formato inválido. Use XXXXXXXXXXX.";
+          event.preventDefault(); // Impede o envio do formulário
+        }
+      }
+    </script>
+  </main>
+</body>
+
+</html>
